@@ -29,16 +29,6 @@ bool CApp::OnInit()
 
         // Initialize an instance of image
         m_image.Initialize(WINDOW_WIDTH, WINDOW_HEIGHT, pRenderer);
-        for(int x = 0; x < WINDOW_WIDTH; ++x)
-        {
-            for(int y = 0; y < WINDOW_HEIGHT; ++y)
-            {
-                double red = static_cast<double>(x ) / WINDOW_WIDTH * 255.0;
-                double green = static_cast<double>(y) / WINDOW_HEIGHT * 255.0;
-
-                m_image.SetPixel(x, y, red, green, 0.0);
-            }
-        }
     }
     else
     {
@@ -90,6 +80,9 @@ void CApp::OnRender()
     // Set background to white
     SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, 255);
     SDL_RenderClear(pRenderer);
+
+    // Render scene
+    m_scene.Render(m_image);
 
     // Display the image
     m_image.GetImage();
