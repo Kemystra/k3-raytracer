@@ -1,3 +1,5 @@
 # Ignore object files
-
 *.o
+
+# Ignore final executable
+k3-rtx
